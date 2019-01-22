@@ -18,11 +18,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
+import {SharedModule} from './shared/shared.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    SharedModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
