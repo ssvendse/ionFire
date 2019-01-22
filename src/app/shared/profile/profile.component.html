@@ -1,3 +1,14 @@
-<p>
-  profile works!
-</p>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      UID: {{ user.id }}
+    </ion-card-subtitle>
+    <img src="user.photoURL || 'assets/icon/anon.svg'">
+    <ion-card-title>
+      {{ user.displayName || 'Mysterious User' }}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Anonymous: {{ user.isAnonymous }} <br> Email: {{ user.email || 'Unknown' }}
+  </ion-card-content>
+</ion-card>

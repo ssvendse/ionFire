@@ -23,6 +23,7 @@
     "@angular/router": "~7.1.4",
     "@ionic-native/core": "5.0.0-beta.21",
     "@ionic-native/firebase": "^5.0.0-beta.24",
+    "@ionic-native/google-plus": "^5.0.0-beta.24",
     "@ionic-native/splash-screen": "5.0.0-beta.21",
     "@ionic-native/status-bar": "5.0.0-beta.21",
     "@ionic/angular": "4.0.0-rc.1",
@@ -32,6 +33,7 @@
     "cordova-ios": "4.5.5",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase": "2.0.5",
+    "cordova-plugin-googleplus": "7.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^2.3.2",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -79,7 +81,11 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-firebase": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.192000158270-64meaj7smbkruu29t1epo2m02a04j4ut",
+        "PLAY_SERVICES_VERSION": "11.8.0"
+      }
     },
     "platforms": [
       "ios",
