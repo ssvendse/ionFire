@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tutorial',
@@ -7,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialPage implements OnInit {
 
-  constructor() { }
+  constructor(private storage: Storage, private router: Router) { }
 
+  async finish() {
+    await this.storage.set('tutorialComplete', true);
+    this.router.navigateByUrl('/');
+  }
   ngOnInit() {
   }
 
