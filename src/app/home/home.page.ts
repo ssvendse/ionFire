@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  constructor(private storage: Storage, private router: Router) { }
+  async revertTutorial() {
+    await this.storage.set('tutorialComplete', false);
+    this.router.navigateByUrl('/tutorial');
+  }
 }
