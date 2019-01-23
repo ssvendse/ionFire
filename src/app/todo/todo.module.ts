@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: '',
     component: TodoPage
+  },
+  {
+    path: ':id',
+    component: TodoDetailComponent
   }
 ];
 
