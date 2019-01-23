@@ -16,12 +16,16 @@ export class TodoPage implements OnInit {
   todos;
   filtered;
   filter = new BehaviorSubject(null);
-  constructor(public db: DbService, public auth: AuthService, public modal: ModalController) { }
+  constructor(
+      public db: DbService,
+      public auth: AuthService,
+      public modal: ModalController
+  ) { }
 
   ngOnInit() {
     this.todos = this.auth.user$.pipe(
         switchMap(user =>
-            this.db.collection$('todo', ref =>
+            this.db.collection$('todos', ref =>
                 ref
                     .where('uid', '==', user.uid)
                     .orderBy('createdAt', 'desc')
@@ -31,7 +35,7 @@ export class TodoPage implements OnInit {
         shareReplay(1)
     );
     this.filtered = this.filter.pipe(
-        switchMap(filter => {
+        switchMap(status => {
           return this.todos.pipe(
               map(arr =>
                   (arr as any[]).filter(

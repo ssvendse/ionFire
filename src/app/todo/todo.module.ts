@@ -30,6 +30,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TodoPage, TodoFormComponent, TodoDetailComponent]
+  declarations: [TodoPage, TodoFormComponent, TodoDetailComponent],
+  entryComponents: [TodoFormComponent]
 })
 export class TodoPageModule {}

@@ -9,7 +9,7 @@
   <div></div>
   <form [formGroup]="todoForm" (ngSubmit)="createTodo()">
     <ion-label>Todo Details</ion-label>
-    <ion-textarea formControlName="content"></ion-textarea>
+    <ion-textarea formControlName="content" type="content" placeholder="Your Todo Details" rows="2"></ion-textarea>
     <ion-label>Status</ion-label>
     <ion-list>
       <ion-radio-group formControlName="status">

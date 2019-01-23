@@ -44,5 +44,6 @@ export class TodoFormComponent implements OnInit {
       ...this.todoForm.value
     };
     this.db.updateAt(`todos/${id}`, data);
+    this.modal.dismiss();
   }
 }

@@ -24,23 +24,29 @@
   </ion-segment>
 
   <ion-list>
+
     <ion-item *ngFor="let todo of filtered | async; trackBy: trackById">
       <ion-label>
-        <span [class.complete]="todo.status === 'complete'"></span>
+        <span [class.complete]="todo.status === 'complete'">{{ todo.content }}</span>
       </ion-label>
-      <ion-checkbox (click)="toggleStatus(todo)" [checked]="todo.status === 'complete'"></ion-checkbox>
+
+      <ion-checkbox (click)="toggleStatus(todo)" [checked]="todo.status === 'complete'" color="success"></ion-checkbox>
+
+
       <ion-button [href]="'todo/' + todo.id">
         <ion-icon name="eye"></ion-icon>
       </ion-button>
-      <ion-button>
-      </ion-button>
-      <ion-button (click)="presentTodoForm(todo)">
+
+      <ion-button (click)="presentTodoForm(todo)" color="tertiary">
         <ion-icon name="create"></ion-icon>
       </ion-button>
+
       <ion-button (click)="deleteTodo(todo)" color="danger">
         <ion-icon name="trash"></ion-icon>
       </ion-button>
     </ion-item>
+
+
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentTodoForm()">
     <ion-fab-button>
