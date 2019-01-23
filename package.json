@@ -30,6 +30,7 @@
     "@ionic/pro": "2.0.4",
     "@ionic/storage": "^2.2.0",
     "cordova-android": "7.1.4",
+    "cordova-android-play-services-gradle-release": "^2.0.0",
     "cordova-ios": "4.5.5",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase": "2.0.5",
@@ -85,6 +86,9 @@
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.192000158270-64meaj7smbkruu29t1epo2m02a04j4ut",
         "PLAY_SERVICES_VERSION": "11.8.0"
+      },
+      "cordova-android-play-services-gradle-release": {
+        "PLAY_SERVICES_VERSION": "15.+"
       }
     },
     "platforms": [
