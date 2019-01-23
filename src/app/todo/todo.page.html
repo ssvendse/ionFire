@@ -29,10 +29,12 @@
 
     <ion-item *ngFor="let todo of filtered | async; trackBy: trackById">
       <ion-label>
-        <span [class.complete]="todo.status === 'complete'">{{ todo.content }}</span>
+        <span [class.complete]="todo.status === 'complete'">{{ todo.content }}
+          <ion-checkbox slot="end" (click)="toggleStatus(todo)" [checked]="todo.status === 'complete'" color="success"></ion-checkbox>
+        </span>
       </ion-label>
 
-      <ion-checkbox (click)="toggleStatus(todo)" [checked]="todo.status === 'complete'" color="success"></ion-checkbox>
+
 
 
       <ion-button [href]="'todo/' + todo.id">
