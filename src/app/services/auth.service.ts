@@ -93,4 +93,7 @@ export class AuthService {
     });
     return await this.afAuth.auth.signInWithCredential(auth.GoogleAuthProvider.credential(gplusUser.idToken));
   }
+  uid() {
+    return this.user$.pipe(take(1), map(u => u && u.uid)).toPromise();
+  }
 }
