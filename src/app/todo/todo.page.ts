@@ -2,25 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { switchMap, map, shareReplay } from 'rxjs/operators';
 import { DbService } from '../services/db.service';
+import { AuthService } from '../services/auth.service';
 
 import { ModalController } from '@ionic/angular';
 import { TodoFormComponent } from './todo-form/todo-form.component';
-import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.page.html',
-  styleUrls: ['./todo.page.scss'],
+  styleUrls: ['./todo.page.scss']
 })
 export class TodoPage implements OnInit {
   todos;
   filtered;
+
   filter = new BehaviorSubject(null);
+
   constructor(
       public db: DbService,
-      public auth: AuthService,
-      public modal: ModalController
-  ) { }
+      public modal: ModalController,
+      public auth: AuthService
+  ) {}
 
   ngOnInit() {
     this.todos = this.auth.user$.pipe(
@@ -34,6 +37,7 @@ export class TodoPage implements OnInit {
         ),
         shareReplay(1)
     );
+
     this.filtered = this.filter.pipe(
         switchMap(status => {
           return this.todos.pipe(
@@ -46,24 +50,29 @@ export class TodoPage implements OnInit {
         })
     );
   }
-  updateFilter(val) {
-    this.filter.next(val);
-  }
-  trackById(idx, todo) {
-    return todo.id;
-  }
+
   deleteTodo(todo) {
     this.db.delete(`todos/${todo.id}`);
   }
+
   toggleStatus(todo) {
-    const status = todo.status === 'complete' ? 'pending' : 'complete;';
+    const status = todo.status === 'complete' ? 'pending' : 'complete';
     this.db.updateAt(`todos/${todo.id}`, { status });
   }
+
+  updateFilter(val) {
+    this.filter.next(val);
+  }
+
   async presentTodoForm(todo?: any) {
     const modal = await this.modal.create({
       component: TodoFormComponent,
       componentProps: { todo }
     });
     return await modal.present();
+  }
+
+  trackById(idx, todo) {
+    return todo.id;
   }
 }

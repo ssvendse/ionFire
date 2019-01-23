@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button autoHide></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Todo List
-    </ion-title>
+
+    <ion-title>My Todo List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+
 
   <ion-segment (ionChange)="updateFilter($event.detail.value)">
     <ion-segment-button value="" checked>
@@ -21,6 +21,8 @@
     <ion-segment-button value="pending">
       Pending
     </ion-segment-button>
+
+
   </ion-segment>
 
   <ion-list>
@@ -46,11 +48,14 @@
       </ion-button>
     </ion-item>
 
-
   </ion-list>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentTodoForm()">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+
+
 </ion-content>
