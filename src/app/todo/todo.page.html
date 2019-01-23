@@ -27,8 +27,14 @@
     <ion-item *ngFor="let todo of todos | async; trackBy: trackById">
       <ion-label>
         <span [class.complete]="todo.status === 'complete'"></span>
-        <ion-checkbox (click)="toggleStatus(todo)" [checked]="todo.status === 'complete'"></ion-checkbox>
       </ion-label>
+      <ion-checkbox (click)="toggleStatus(todo)" [checked]="todo.status === 'complete'"></ion-checkbox>
+      <ion-button [href]="'todo/' + todo.id">
+        <ion-icon name="eye"></ion-icon>
+      </ion-button>
+      <ion-button (click)="presentTodoForm(todo)">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
