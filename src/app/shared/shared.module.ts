@@ -8,11 +8,11 @@ import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
-  declarations: [ProfileComponent, LoginComponent, DeviceComponent],
   imports: [
     CommonModule,
     IonicModule
   ],
+  declarations: [ProfileComponent, LoginComponent, DeviceComponent],
   exports: [ProfileComponent, LoginComponent, DeviceComponent]
 })
 export class SharedModule { }

@@ -9,6 +9,8 @@ import { TodoPage } from './todo.page';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +27,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [TodoPage, TodoFormComponent, TodoDetailComponent]

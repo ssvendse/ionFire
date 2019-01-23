@@ -3,12 +3,13 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private alertController: AlertController) {}
+  constructor(private auth: AuthService, private alertController: AlertController, private router: Router) {}
   async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean> {
@@ -22,6 +23,7 @@ export class AuthGuard implements CanActivate {
         buttons: ['OK']
       });
       await alert.present();
+      this.router.navigateByUrl('/');
     }
     return isLoggedIn;
   }

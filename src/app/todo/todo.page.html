@@ -24,7 +24,7 @@
   </ion-segment>
 
   <ion-list>
-    <ion-item *ngFor="let todo of todos | async; trackBy: trackById">
+    <ion-item *ngFor="let todo of filtered | async; trackBy: trackById">
       <ion-label>
         <span [class.complete]="todo.status === 'complete'"></span>
       </ion-label>
@@ -37,6 +37,14 @@
       <ion-button (click)="presentTodoForm(todo)">
         <ion-icon name="create"></ion-icon>
       </ion-button>
+      <ion-button (click)="deleteTodo(todo)" color="danger">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentTodoForm()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
