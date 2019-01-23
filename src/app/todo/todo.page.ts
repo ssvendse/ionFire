@@ -14,6 +14,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class TodoPage implements OnInit {
   todos;
+  filtered;
+  filter = new BehaviorSubject(null);
   constructor(public db: DbService, public auth: AuthService, public modal: ModalController) { }
 
   ngOnInit() {
@@ -28,6 +30,20 @@ export class TodoPage implements OnInit {
         ),
         shareReplay(1)
     );
+    this.filtered = this.filter.pipe(
+        switchMap(filter => {
+          return this.todos.pipe(
+              map(arr =>
+                  (arr as any[]).filter(
+                      obj => (status ? obj.status === status : true)
+                  )
+              )
+          );
+        })
+    );
+  }
+  updateFilter(val) {
+    this.filter.next(val);
   }
   trackById(idx, todo) {
     return todo.id;
