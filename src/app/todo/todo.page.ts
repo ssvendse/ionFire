@@ -29,5 +29,14 @@ export class TodoPage implements OnInit {
         shareReplay(1)
     );
   }
-
+  trackById(idx, todo) {
+    return todo.id;
+  }
+  deleteTodo(todo) {
+    this.db.delete(`todos/${todo.id}`);
+  }
+  toggleStatus(todo) {
+    const status = todo.status === 'complete' ? 'pending' : 'complete;';
+    this.db.updateAt(`todos/${todo.id}`, { status });
+  }
 }
