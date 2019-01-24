@@ -17,6 +17,9 @@ export class FcmPage implements OnInit {
 
   ngOnInit() {
   }
+  getPermission() {
+    this.fcm.getPermission().subscribe();
+  }
   randomDiscount() {
     const random = Math.round(Math.random() * 100);
     const headline = `New discount for ${random}% off!`;
