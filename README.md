@@ -1,6 +1,7 @@
-# ionFire
+# ionFire - Ionic 4 and Firebase Sample App
 
 Firebase security rules:
+```
 service cloud.firestore {
   match /databases/{database}/documents {
   	function isSignedIn() {
@@ -26,3 +27,4 @@ service cloud.firestore {
     }
   }
 }
+```
