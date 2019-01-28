@@ -63,7 +63,6 @@ export class TodoPage implements OnInit {
   updateFilter(val) {
     this.filter.next(val);
   }
-
   async presentTodoForm(todo?: any) {
     const modal = await this.modal.create({
       component: TodoFormComponent,
